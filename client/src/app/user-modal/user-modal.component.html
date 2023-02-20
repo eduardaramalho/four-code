@@ -1,0 +1,6 @@
+<app-basicmodal [title]="title" (save)="add()">
+    <app-input [label]="'Nome'" [required]="true" [(ngModel)]="name"></app-input>
+    <app-input [label]="'Usuário'" [required]="true" [(ngModel)]="username"></app-input>
+    <app-input [label]="'Senha'" [required]="true" [(ngModel)]="password"></app-input>
+    <app-input [label]="'Confirme a senha'" [required]="true" [(ngModel)]="cpassword"></app-input>
+</app-basicmodal>

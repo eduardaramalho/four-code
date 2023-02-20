@@ -1,0 +1,37 @@
+<div class="example-form" ngDefaultControl >
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Insira o pedido de venda</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+  </div>
+
+  <div class="table">
+    <table *ngIf="vendas.length > 0">
+      <tr>
+        <td><b> ID </b></td>
+        <td> <b>Cliente</b></td>
+        <td><b>Data de emissão</b></td>
+        <td> <b>Data de entrega</b> </td>
+        <td> <b>Endereço</b> </td>
+        <td> <b>Total</b> </td>
+        <td class="tdDesativar"> <b> Desativar </b></td>
+      </tr>
+      <tr *ngFor="let venda of vendas">
+        <td>{{venda.id}}</td>
+        <td class="tdDescricao" (click)="openModalEdit(venda)"> {{venda.newClient_description}} </td>
+        <td>{{venda.dataEmissao_str}}</td>
+        <td> {{venda.dataEntrega_str}} </td>
+        <td> {{venda.address_description}} </td>
+        <td> {{venda.total}} </td>
+        <td class="tdDesativar">
+          <button class="buttonDelete" mat-stroked-button (click)="delete(venda.id)">X</button>
+        </td>
+      </tr>
+    </table>
+    <div class="noRegister" *ngIf="vendas.length == 0">
+      <p>Nenhum registro encontrado.</p>
+    </div>
+  
+  </div>
+  

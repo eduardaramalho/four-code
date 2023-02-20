@@ -1,0 +1,28 @@
+.cod, .total, .add{
+    height: 50px;
+}
+
+.cod, .auto, .emissao, .entrega{
+    display: inline-block;
+    margin: 3px;
+}
+
+.cod, .total, .add{
+    //width: calc(100vh - 47rem);
+    //height: calc(100vh - 45rem);
+    display: inline-block;
+    position: relative;
+}
+
+.end, button, .add{
+    display: inline-block;
+    margin: 3px;
+}
+
+.emissao, .entrega{
+    width: calc(100vh - 41rem);
+}
+
+.add{
+    height: 2%
+}

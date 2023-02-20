@@ -1,0 +1,11 @@
+<app-basicmodal [title]="title" (save)="save()" [closeOnSave]="false">
+    <app-input [label]="'CEP'" [(ngModel)]="cep"></app-input>
+    <app-input [label]="'Rua'"  [(ngModel)]="rua"></app-input>
+    <app-input [label]="'Número'"  [(ngModel)]="numero"></app-input>
+    <app-input [label]="'Bairro '"  [(ngModel)]="bairro"></app-input>
+    <app-input [label]="'Cidade '"  [(ngModel)]="cidade"></app-input>
+    <app-dropdown [array]="ufs" [title]="'UF'" [idField]="'value'" [textField]="'estado'" [(ngModel)]="estado"></app-dropdown>
+    <app-input [label]="'Complemento '"  [(ngModel)]="complemento"></app-input>
+    <button (click)="addAddress()">Confirmar dados</button>
+</app-basicmodal>
+

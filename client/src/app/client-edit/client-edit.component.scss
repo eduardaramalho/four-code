@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    padding: 10px;
+}
+
+.buttonSearch{
+    float: right;
+    background-color: #59B17E;
+    margin-top: 12px;
+    left: -20px;
+    height: 53px;
+    border: none;
+}
+
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 5px;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: none;
+    border: 1px solid #797b80;
+    overflow-y: auto;
+    border-radius: 5px;
+    scrollbar-width: thin;
+}
+
+
+.noRegister{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+
+.matIcon{
+    text-align: center;
+}

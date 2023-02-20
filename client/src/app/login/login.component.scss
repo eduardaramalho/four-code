@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+.entrar h1{
+    text-align: center;
+}
+
+mat-card {
+    max-width: 30rem;
+    margin: 15em auto;
+    text-align: center;
+    background-color: rgb(236, 236, 236);
+}
+
+mat-form-field {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-card-title h1{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    
+}

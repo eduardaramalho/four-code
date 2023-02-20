@@ -1,0 +1,32 @@
+<div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Insira a coleção</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+</div>
+
+<div class="table">
+<table *ngIf="colecoes.length > 0">
+  <tr>
+    <td><b> ID </b></td>
+    <td> <b>Coleção</b> </td>
+    <td class="tdDesativar"> <b> Desativar </b></td>
+  </tr>
+    <tr *ngFor="let colecao of colecoes">
+      <td>{{colecao.id}}</td>
+      <td (click)="openModalEdit(colecao)" class="tdDescricao"> {{colecao.descricao}} </td>
+      <td class="tdDesativar">
+      <button class="buttonDelete" mat-stroked-button (click)="deleteColecao(colecao.id)">X</button>
+    </td>
+    </tr>
+</table>
+<div class="noRegister" *ngIf="colecoes.length == 0">
+  <p>Nenhum registro encontrado.</p>
+</div>
+
+</div>
+
+<!-- <app-grid [array]="grupos" [filter]="'descricao'"></app-grid> -->
+
+

@@ -1,0 +1,4 @@
+<app-basicmodal [title]="title" (save)="add()">
+    <app-input [label]="'Descrição do subgrupo'" [required]="true"  [(ngModel)]="descricao"></app-input>
+    <app-dropdown [array]="grupos" [title]="'Grupo'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="fkgrupo"></app-dropdown>
+  </app-basicmodal>
