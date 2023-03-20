@@ -9,7 +9,8 @@ knl.post('user', async(req, resp) => {
         name : Joi.string().min(1).max(100).required(),
         username : Joi.string().min(1).max(100).required(),
         password : Joi.string().min(6).max(16).required(),
-        cpassword : Joi.string().min(6).max(16).required()
+        cpassword : Joi.string().min(6).max(16).required(),
+        roles: Joi.number().min(1).max(100).required(),
     })
 
     knl.validate(req.body, schema);
@@ -27,7 +28,8 @@ knl.post('user', async(req, resp) => {
         name : req.body.name,
         username : req.body.username,
         password : md5(req.body.password),
-        status   : 1
+        status   : 1,
+        roles: req.body.roles
     });
 
     await user.save();
