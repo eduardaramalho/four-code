@@ -3,4 +3,5 @@
     <app-input [label]="'Usuário'" [required]="true" [(ngModel)]="username"></app-input>
     <app-input [label]="'Senha'" [required]="true" [(ngModel)]="password"></app-input>
     <app-input [label]="'Confirme a senha'" [required]="true" [(ngModel)]="cpassword"></app-input>
+    <app-dropdown [array]="permissoes" [title]="'Permissão'" [idField]="'value'" [textField]="'value'" [(ngModel)]="permissao"></app-dropdown>
 </app-basicmodal>

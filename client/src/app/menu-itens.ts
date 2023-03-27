@@ -5,7 +5,6 @@ import { CollectionComponent } from "./collection/collection.component";
 import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
-
 export const MenuItens = [
     {
         path: 'user',
@@ -48,5 +47,5 @@ export const MenuItens = [
         caption : 'Pedido de venda',
         icon : 'add_shopping_cart',
         component: SaleComponent,
-    } 
+    }
 ]

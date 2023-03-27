@@ -12,12 +12,14 @@
         <td><b> ID </b></td>
         <td> <b>Nome</b></td>
         <td><b>Username</b></td>
+        <td><b>Permissão</b></td>
         <td class="tdDesativar"> <b> Desativar </b></td>
       </tr>
       <tr *ngFor="let user of users">
         <td>{{user.id}}</td>
         <td (click)="openModalEdit(user)" class="tdDescricao"> {{user.name}} </td>
         <td>{{user.username}}</td>
+        <td>{{user.permissao}}</td>
         <td class="tdDesativar">
           <button class="buttonDelete" mat-stroked-button (click)="deleteUser(user.id)">X</button>
         </td>

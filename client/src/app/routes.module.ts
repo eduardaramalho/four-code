@@ -4,7 +4,7 @@ import { AuthService } from "src/services/auth.service";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { MenuItens } from "./menu-itens";
-
+import { SignUpComponent } from "./sign-up/sign-up.component";
 
 const rootRoutes: Routes = [
     {
@@ -22,6 +22,10 @@ const rootRoutes: Routes = [
     {
       path: 'login',
       component: LoginComponent
+    },
+    {
+      path: 'signup',
+      component: SignUpComponent
     },
     {
       path: '**',

@@ -42,6 +42,7 @@ import { SaleComponent } from './sale/sale.component';
 import { SaleModalComponent } from './sale-modal/sale-modal.component';
 import { ProductSaleModalComponent } from './product-sale-modal/product-sale-modal.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     AddressEditComponent,
     SaleComponent,
     SaleModalComponent,
-    ProductSaleModalComponent
+    ProductSaleModalComponent,
+    SignUpComponent
     ],
   imports: [
     RoutesModule,
