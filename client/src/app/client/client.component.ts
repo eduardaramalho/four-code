@@ -3,9 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
 import { QuestionService } from 'src/services/question.service';
 import { ObjectUtils } from 'src/utils/ObjectUtils';
-import { AddressModalComponent } from '../address-modal/address-modal.component';
-import { ClientEditComponent } from '../client-edit/client-edit.component';
-import { ClientModalComponent } from '../client-modal/client-modal.component';
+import { ClientEditComponent } from '../client-modal/client-edit.component';
 
 @Component({
   selector: 'app-client',
@@ -40,9 +38,9 @@ export class ClientComponent implements OnInit {
   }  
 
   public openModal(){
-    const dialog = this.dialog.open(ClientModalComponent, {
-      width: '650px',
-      height : '470px'
+    const dialog = this.dialog.open(ClientEditComponent, {
+      // width: '50%',
+      // minHeight: '500px'
     });
 
     dialog.afterClosed().subscribe((result : any) => {
@@ -53,8 +51,8 @@ export class ClientComponent implements OnInit {
   public openModalEdit(cliente : any){
     const dialog = this.dialog.open(ClientEditComponent, {
 
-      width: '60%',
-      height: '75%',
+      // width: '50%',
+      // height: '75%',
 
       data : cliente.id
     });
@@ -63,16 +61,4 @@ export class ClientComponent implements OnInit {
       this.list();
     })
   }
-
-  public openModalEndereco(colecao : any){
-    const dialog = this.dialog.open(AddressModalComponent, {
-      width: '730px',
-      data : colecao
-    });
-
-    dialog.afterClosed().subscribe((result : any) => {
-      this.list();
-    })
-  }
-
 }

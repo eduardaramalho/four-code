@@ -1,0 +1,43 @@
+<app-basicmodal [title]="title" (save)="save()">
+
+  <mat-tab-group>
+    <mat-tab label="Cliente"> 
+      <app-input [label]="'Nome Fantasia do cliente'"  [(ngModel)]="customer.nomeFantasia"></app-input>
+      <app-input [label]="'Razão Social do Cliente'"  [(ngModel)]="customer.razaoSocial"></app-input>
+      <app-input [label]="'CNPJ'"  [(ngModel)]="customer.CNPJ"></app-input>
+      <app-input [label]="'Cliente desde? '"  [required]="true" [(ngModel)]="customer.clienteDesde" [type]="'date'"></app-input>
+    </mat-tab>
+          
+    <mat-tab label="Endereço"> 
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Insira a rua</mat-label>
+        <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+      </mat-form-field>
+      <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+
+      <table *ngIf="customer.address.length > 0">
+        <tr>
+          <th>CEP</th>
+          <th>Rua</th>
+          <th>Bairro</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Número</th>
+          <th>Complemento</th>
+        </tr>
+        <tr  *ngFor="let address of customer.address">
+          <td (click)="editModal(address)">{{address.cep}}</td>
+          <td (click)="editModal(address)">{{address.rua}}</td>
+          <td (click)="editModal(address)">{{address.bairro}}</td>
+          <td (click)="editModal(address)">{{address.cidade}}</td>
+          <td (click)="editModal(address)">{{address.uf}}</td>
+          <td (click)="editModal(address)">{{address.numero}}</td>
+          <td (click)="editModal(address)">{{address.complemento}}</td>
+        </tr>
+      </table>
+
+      <div *ngIf="customer.address.length == 0 && filterTerm != ''">
+        <p>Nenhum registro encontrado</p>
+      </div>
+    </mat-tab>
+  <mat-tab-group>

@@ -1,11 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
-import { AddressModalComponent } from '../address-modal/address-modal.component';
-import { ChangeModalComponent } from '../change-modal/change-modal.component';
-   
-
-
 
 interface ArrayUF{
   value: string;
@@ -55,16 +50,14 @@ export class AddressEditComponent implements OnInit {
   cidade       : string = '';
   complemento  : string = '';
   estado       : string = '';
-  title        : string = '';
+  title        : string = 'Inserir endereço';
 
   newAddress     : Array<any> = [];
 
 
-  constructor(private httpService : HttpService, @Inject(MAT_DIALOG_DATA) private data: any,  private dialogRef: MatDialogRef<AddressModalComponent>) { }
+  constructor(private httpService : HttpService, @Inject(MAT_DIALOG_DATA) private data: any,  private dialogRef: MatDialogRef<AddressEditComponent>) { }
 
   async ngOnInit () {
-    this.title = 'Inserir endereço';
-
     if(this.data){
       this.title = 'Editar endereço';
       this.cep = this.data.cep
@@ -111,11 +104,13 @@ export class AddressEditComponent implements OnInit {
 
   public async changeAddress(){
     this.httpService.put('cliente',
-    {nomeFantasia : this.data.nomeFantasia, 
-     razaoSocial:  this.data.razaoSocial,
-     CNPJ : this.data.CNPJ,
-     clienteDesde : this.data.clienteDesde, 
-     id : this.data.id,
-     addresses : this.newAddress });
+    {
+      nomeFantasia  : this.data.nomeFantasia, 
+      razaoSocial   :  this.data.razaoSocial,
+      CNPJ          : this.data.CNPJ,
+      clienteDesde  : this.data.clienteDesde, 
+      id            : this.data.id,
+      addresses     : this.newAddress 
+    });
   }
 }

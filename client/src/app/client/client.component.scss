@@ -21,13 +21,14 @@
 table {
     border-collapse: separate;
     text-indent: initial;
-    border-spacing: 15px;
+    //border-spacing: 15px;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     border: none;
     width: 100%;
     height: 100%;
+    text-align: center;
 }
 
 .table{
@@ -39,6 +40,14 @@ table {
     margin: 1rem;
     scrollbar-width: thin;
 }
+
+// tr:nth-child(even) {
+//     background:rgb(221, 221, 221);
+// }
+
+// tr{
+//     height: 50px;
+// }
 
 .noRegister{
     text-transform: uppercase;

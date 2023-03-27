@@ -30,14 +30,12 @@ import { CollectionModalComponent } from './collection-modal/collection-modal.co
 import { ProductComponent } from './product/product.component';
 import { ProductModalComponent } from './product-modal/product-modal.component';
 import { ClientComponent } from './client/client.component';
-import { ClientModalComponent } from './client-modal/client-modal.component';
-import { ClientEditComponent } from './client-edit/client-edit.component';
+import { ClientEditComponent } from './client-modal/client-edit.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { UserModalComponent } from './user-modal/user-modal.component';
 import { ChangeModalComponent } from './change-modal/change-modal.component';
 import { ErrorModalComponent } from './error-modal/error-modal.component';
-import { AddressModalComponent } from './address-modal/address-modal.component';
-import { AddressEditComponent } from './address-edit/address-edit.component';
+import { AddressEditComponent } from './address-modal/address-edit.component';
 import { SaleComponent } from './sale/sale.component';
 import { SaleModalComponent } from './sale-modal/sale-modal.component';
 import { ProductSaleModalComponent } from './product-sale-modal/product-sale-modal.component';
@@ -64,13 +62,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ProductComponent,
     ProductModalComponent,
     ClientComponent,
-    ClientModalComponent,
     ClientEditComponent,
     DropdownComponent,
     UserModalComponent,
     ChangeModalComponent,
     ErrorModalComponent,
-    AddressModalComponent,
     AddressEditComponent,
     SaleComponent,
     SaleModalComponent,

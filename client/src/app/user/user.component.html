@@ -1,7 +1,8 @@
 <div class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Insira o usuário</mat-label>
-      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+      <!-- <input matInput (input)="filterInput()" [(ngModel)]="filterTerm"> -->
+      <input matInput placeholder="" value="" [(ngModel)]="filterTerm" (input)="filterInput()">
     </mat-form-field>
     <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
   </div>

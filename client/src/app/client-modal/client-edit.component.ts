@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
 import { ObjectUtils } from 'src/utils/ObjectUtils';
-import { AddressEditComponent } from '../address-edit/address-edit.component';
+import { AddressEditComponent } from '../address-modal/address-edit.component';
 import { ChangeModalComponent } from '../change-modal/change-modal.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class ClientEditComponent implements OnInit {
 
   customer     : any =  null;
   
-  title        : string = '';
+  title        : string = 'Novo Cliente';
   originalList : Array<any> = [];
   filterTerm   : string = '';
 
@@ -76,12 +76,6 @@ export class ClientEditComponent implements OnInit {
     }
   }
 
-
-  /*public async list(){    
-    this.costumer = await this.httpService.get('cliente');
-    ObjectUtils.copyArray(this.clientes, this.originalList);
-  }*/
-
   public filterInput(){
     ObjectUtils.filterArray(this.customer.address, this.originalList, this.filterTerm, 'rua');
   }
@@ -89,6 +83,17 @@ export class ClientEditComponent implements OnInit {
   public openModal(){
     const dialog = this.dialog.open(AddressEditComponent, {
       width: '450px'
+    });
+
+    dialog.afterClosed().subscribe((result : any) => {
+      this.customer.address.push(result);
+    })
+  }
+
+  public editModal(end : any){
+    const dialog = this.dialog.open(AddressEditComponent, {
+      width: '450px',
+      data: end
     });
 
     dialog.afterClosed().subscribe((result : any) => {
