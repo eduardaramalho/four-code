@@ -4,6 +4,23 @@
     text-align: center;
 }
 
+img{
+    max-width: 60%;
+    position: relative;
+} 
+
+.botaoEntrar{
+    max-width: 100%;
+    width: 350px;
+    color: #FFFF;
+    background-color: #5680D3;
+}
+
+.novoUsuario{
+    color: #a1a1a1;
+}
+
+
 mat-card {
     max-width: 30rem;
     margin: 15em auto;
