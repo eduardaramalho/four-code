@@ -1,0 +1,8 @@
+<mat-form-field class="full-width" appearance="fill">
+    <mat-label>{{title}} </mat-label>
+    <mat-select [(ngModel)]="value">
+        <mat-option *ngFor="let item of array" [value]="item[idField]" (onSelectionChange)="selectChange(item)">
+            {{item[textField]}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,36 @@
+<app-basicmodal [title]="title" (save)="add()" [closeOnSave]="false"> 
+  <app-dropdown [array]="produtos" [title]="'Produto'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="fkproduto"> </app-dropdown> 
+  <br>
+
+  <div class="valor">
+      <mat-form-field class="example-ripple-form-field" appearance="fill">
+          <mat-label>Valor Un</mat-label>
+          <input matInput [(ngModel)]="valorUnitario" type="number" (blur)="somarTotal()">
+        </mat-form-field>
+    </div>
+    
+    <div class="quant">
+        <mat-form-field class="example-ripple-form-field" appearance="fill">
+            <mat-label>Quant</mat-label>
+            <input matInput [(ngModel)]="quantidade" type="number" (blur)="somarTotal()">
+          </mat-form-field>
+    </div>
+    <br>
+
+    <div class="desc">
+      <mat-form-field class="example-ripple-form-field" appearance="fill">
+          <mat-label>Desc</mat-label>
+          <input matInput [(ngModel)]="desconto" type="number" (blur)="somarTotal()">
+        </mat-form-field>
+  </div>
+  
+  <div class="acres">
+      <mat-form-field class="example-ripple-form-field" appearance="fill">
+          <mat-label>Acres</mat-label>
+          <input matInput [(ngModel)]="acrescimo" type="number" (blur)="somarTotal()">
+        </mat-form-field>
+  </div>
+  <br>
+
+  <app-input [label]="'Total'" [(ngModel)]="total" class="inputTotal" [readonly]="true"></app-input>
+</app-basicmodal>

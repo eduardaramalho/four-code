@@ -1,0 +1,8 @@
+<app-basicmodal [title]="title" (save)="add()">
+    <app-input [label]="'Descrição do produto'" [required]="true" [(ngModel)]="descricao"></app-input>
+    <app-input [label]="'Preço de venda'" [required]="true" [(ngModel)]="precoVenda"></app-input>
+    
+    <app-dropdown [array]="grupos" [title]="'Grupo'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="grupoId"></app-dropdown> <br>
+    <app-dropdown [array]="subgrupos" [title]="'Subgrupo'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="subgrupoId"></app-dropdown> <br>
+    <app-dropdown [array]="colecoes" [title]="'Coleção'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="colecaoId"></app-dropdown>
+</app-basicmodal>

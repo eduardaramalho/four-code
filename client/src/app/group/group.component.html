@@ -1,0 +1,31 @@
+<div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Insira o grupo</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+</div>
+
+<div class="table">
+  <table *ngIf="grupos.length > 0">
+    <tr class="title">
+      <td><b>ID</b></td>
+      <td><b>Grupo</b></td>
+      <td class="tdDesativar"><b>Desativar</b></td>
+    </tr>
+      <tr *ngFor="let grupo of grupos">
+        <td>{{grupo.id}} </td>
+        <td (click)="openModalEdit(grupo)" class="tdDescricao"> {{grupo.descricao}} </td>
+        <td class="tdDesativar">
+          <button class="buttonDelete" mat-stroked-button (click)="deleteGrupo(grupo.id)">X</button>
+        </td>
+      </tr>
+  </table>
+  
+<div *ngIf="grupos.length == 0" class="noRegister">
+  <p>Nenhum registro encontrado.</p>
+</div>
+</div>
+
+<!-- <app-grid [array]="grupos" [filter]="'descricao'"></app-grid> -->
+

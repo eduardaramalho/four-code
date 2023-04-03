@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+.entrar h1{
+    text-align: center;
+}
+
+img{
+    max-width: 60%;
+    position: relative;
+} 
+
+.botaoEntrar{
+    max-width: 100%;
+    width: 350px;
+    color: #FFFF;
+    background-color: #5680D3;
+}
+
+.novoUsuario{
+    color: #a1a1a1;
+}
+
+
+mat-card {
+    max-width: 30rem;
+    margin: 15em auto;
+    text-align: center;
+    background-color: rgb(236, 236, 236);
+}
+
+mat-form-field {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+}
+
+mat-card-title h1{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    
+}

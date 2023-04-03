@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<div>
+    <ng-content></ng-content>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button class="buttonCancel" (click)="cancelClick()">Cancelar</button>
+    <button mat-raised-button class="buttonSave"  (click)="saveClick()">Salvar</button>
+</div>

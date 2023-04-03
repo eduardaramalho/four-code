@@ -1,0 +1,33 @@
+<div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Insira a coleção</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+  </div>
+  
+  <div class="table">
+    <table *ngIf="produtos.length > 0">
+      <tr>
+        <td><b> ID </b></td>
+        <td> <b>Produto</b></td>
+        <td><b>Preço</b></td>
+        <td> <b>Coleção</b> </td>
+        <td class="tdDesativar"> <b> Desativar </b></td>
+      </tr>
+      <tr *ngFor="let produto of produtos">
+        <td>{{produto.id}}</td>
+        <td (click)="openModalEdit(produto)" class="tdDescricao"> {{produto.descricao}} </td>
+        <td>{{produto.precoVenda}}</td>
+        <td> {{produto.collection_description}} </td>
+        <td class="tdDesativar">
+          <button class="buttonDelete" mat-stroked-button (click)="deleteProduto(produto.id)">X</button>
+        </td>
+      </tr>
+    </table>
+    <div class="noRegister" *ngIf="produtos.length == 0">
+      <p>Nenhum registro encontrado.</p>
+    </div>
+  
+  </div>
+  

@@ -1,0 +1,28 @@
+  <app-basicmodal [title]="title" (save)="add()">
+
+   <app-dropdown [array]="clientes" [title]="'Clientes'" [idField]="'id'" [textField]="'nomeFantasia'"  [(ngModel)]="pedido.fkcliente"> </app-dropdown> 
+    <app-input [label]="'Emissão'" [required]="true"   [(ngModel)]="pedido.dataEmissao" [type]="'date'"  class="emissao"></app-input>
+    <app-input [label]="'Entrega'" [required]="true"  [(ngModel)]="pedido.dataEntrega" [type]="'date'" class="entrega"></app-input>
+    <app-dropdown [array]="enderecos" [title]="'Endereços'"  [idField]="'id'" [textField]="'rua'" class="auto" [(ngModel)]="pedido.fkendereco" class="end" ></app-dropdown> 
+    <app-input [label]="'Total'" [required]="true"  [(ngModel)]="pedido.total" class="total" [readonly]="true"></app-input>
+    <button mat-stroked-button color="primary" class="cod" (click)="modalProduto()">+</button>
+  
+    <div class="table">
+      <table *ngIf="pedido.produtos.length > 0">
+        <tr>
+          <td> <b>Descrição</b></td>
+          <td> <b>Valor unitário</b> </td>
+          <td><b>Quantidade</b></td>
+          <td> <b>Total</b> </td>
+        </tr>
+        <tr *ngFor="let produto of pedido.produtos">
+        <td>{{produto.produto_descricao}}</td>
+        <td>{{produto.valorUnitario}}</td>
+        <td>{{produto.quantidade}}</td>
+        <td>{{produto.total}}</td>
+        <td class="delete" (click)="deleteItem(produto)">X</td>
+        </tr>
+      </table>
+    </div>
+
+  </app-basicmodal>
