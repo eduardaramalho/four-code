@@ -46,18 +46,17 @@ export class SignUpComponent implements OnInit {
        cpassword: this.cpassword,
        permissao: 'Comercial' });
        console.log("Usuário adicionado ao BD");
-       this.login();
+      //  this.login();
   }
 
-  public login(){
-    this.HttpClient.post('http://localhost:3003/logon', {username : this.username, password : this.password}).toPromise().then((response : any)=> {
-      if(response.token){
-        this.isLogin = true;
-        window.localStorage.setItem('token', response.token);
+//   public login(){
+//     this.HttpClient.post('http://localhost:3003/logon', {username : this.username, password : this.password}).toPromise().then((response : any)=> {
+//       if(response.token){
+//         window.localStorage.setItem('token', response.token);
         
-        this.router.navigateByUrl('');
-        console.log("Logado");
-      }
-    })
-}
+//         this.router.navigateByUrl('');
+//         console.log("Logado");
+//       }
+//     })
+// }
 }
