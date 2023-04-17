@@ -5,58 +5,55 @@ import { CollectionComponent } from "./collection/collection.component";
 import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
-import { Role } from "./_models/role";
-import { AuthGuard } from "./_helpers";
 
 export const MenuItens = [
     {
         path: 'user',
         caption : 'Usuário',
         icon : 'person',
+        permissao : [1],
         component: UserComponent,
-        // canActivate: [AuthGuard],
-        data: { roles: [Role.Admin]}
     } ,
     {
         path: 'client',
         caption : 'Cliente',
         icon : 'supervisor_account',
+        permissao : [1, 2],
         component: ClientComponent,
-        // canActivate: [AuthGuard]
     },
     {
         path: 'group',
         caption : 'Grupo',
         icon : 'assessment',
+        permissao : [1, 2],
         component: GroupComponent,
-        // canActivate: [AuthGuard]
     },
     {
         path: 'subgroup',
         caption : 'Subgrupo',
         icon : 'assignment',
+        permissao : [1, 2],
         component: SubgroupComponent,
-        // canActivate: [AuthGuard]
     },
     {
         path: 'collection',
         caption : 'Coleção',
         icon : 'next_week',
+        permissao : [1, 2],
         component: CollectionComponent,
-        // canActivate: [AuthGuard]
     },
     {
         path: 'product',
         caption : 'Produto',
         icon : 'folder_special',
+        permissao : [1, 2, 3],
         component: ProductComponent,
-        // canActivate: [AuthGuard]
     },
     {
         path: 'sale',
         caption : 'Pedido de venda',
         icon : 'add_shopping_cart',
+        permissao : [1, 4],
         component: SaleComponent,
-        // canActivate: [AuthGuard]
     }
 ]

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/services/http.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LoginComponent } from '../login/login.component';
+import { error } from 'console';
 
 interface ArrayPermissoes {
   value: string;
@@ -17,10 +19,10 @@ interface ArrayPermissoes {
 
 export class SignUpComponent implements OnInit {
   permissoes: ArrayPermissoes[] = [
-    { value: 'SuperAdmin', permissao: 'SuperAdmin' },
-    { value: 'Admin', permissao: 'Admin' },
-    { value: 'Comercial', permissao: 'Comercial' },
-    { value: 'Cliente', permissao: 'Cliente' }
+    { value: 'SuperAdmin', permissao: '1' },
+    { value: 'Admin', permissao: '2' },
+    { value: 'Comercial', permissao: '3' },
+    { value: 'Cliente', permissao: '4' }
   ];
 
   name: string = '';
@@ -44,19 +46,9 @@ export class SignUpComponent implements OnInit {
        username: this.username,
        password: this.password,
        cpassword: this.cpassword,
-       permissao: 'Comercial' });
-       console.log("Usuário adicionado ao BD");
-      //  this.login();
+       permissao: '4' 
+      });
+       console.log("Usuário adicionado");
+      this.router.navigate(['/login']);
   }
-
-//   public login(){
-//     this.HttpClient.post('http://localhost:3003/logon', {username : this.username, password : this.password}).toPromise().then((response : any)=> {
-//       if(response.token){
-//         window.localStorage.setItem('token', response.token);
-        
-//         this.router.navigateByUrl('');
-//         console.log("Logado");
-//       }
-//     })
-// }
 }
