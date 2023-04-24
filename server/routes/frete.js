@@ -4,7 +4,7 @@ const knl = require('../knl');
 knl.post('colecao', async (req, resp) => {
     const schema = Joi.object({
         ValorTotal: Joi.number().min(1).required(),
-        descricao: Joi.string().required(),
+        ativo: Joi.string().required(),
         desconto: Joi.number()
     })
 
