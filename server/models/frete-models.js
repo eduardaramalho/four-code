@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define('Endereco', {
+    sequelize.define('frete', {
         id : {
             type : Sequelize.INTEGER.UNSIGNED,
             primaryKey : true,
