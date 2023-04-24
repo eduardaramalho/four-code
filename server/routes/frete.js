@@ -52,10 +52,9 @@ knl.get("frete/:id", async (req, resp) => {
     resp.json(result);
 })
 
-
-knl.put("frete", async (req, resp) => {
- await knl.sequelize().models.Frete.update({
-         valorTotal: req.body.valorTotal,
+knl.put('frete', async (req, resp) => {
+    const result = await knl.sequelize().models.Frete.update({
+        valorTotal: req.body.valorTotal,
          valor: req.body.valorTotal,
          fkProduto: req.body.fkProduto,
          desconto: req.body.desconto,
@@ -65,7 +64,7 @@ knl.put("frete", async (req, resp) => {
         }
     });
 
-    resp.json({ "Status": "ok" })
+    resp.send(result);
 })
 
 knl.patch('frete', async (req, resp) => {
