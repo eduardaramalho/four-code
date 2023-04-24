@@ -39,14 +39,13 @@ export class ChargeModalComponent implements OnInit {
  }
 
   public async add(){
-    console.log(this.data.id)
    if(this.data){
     await this.httpService.put('frete', {
       valorTotal: this.total,
       valor: this.valor,
       fkProduto: this.fkProduto,
       desconto: this.desconto,
-      id : this.data.id
+      id: this.data.id
     }); 
    } else {
      await this.httpService.post('frete', {

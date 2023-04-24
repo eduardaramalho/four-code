@@ -1,5 +1,11 @@
 <div class="example-form">
-    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Insira o frete</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+  </div>
+  
   <div class="table">
     <table *ngIf="fretes.length > 0">
       <tr>
