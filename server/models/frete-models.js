@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
             type: Sequelize.INTEGER.UNSIGNED,
             allowNull: false,
         },
+        fkProduto: {
+            type: Sequelize.INTEGER.UNSIGNED,
+            allowNull: false,
+        },
         ativo : {
             type : Sequelize.INTEGER,
             allowNull : false
