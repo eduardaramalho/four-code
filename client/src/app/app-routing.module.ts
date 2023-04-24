@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
-import { AuthGuard } from './_helpers';
-import { Role } from './_models';
+// import { AuthGuard } from './_helpers';
+// import { Role } from './_models';
 import { ClientComponent } from './client/client.component';
 import { GroupComponent } from './group/group.component';
 

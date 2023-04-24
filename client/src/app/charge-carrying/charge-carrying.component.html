@@ -1,0 +1,27 @@
+<div class="example-form">
+    
+  <div class="table">
+    <table *ngIf="fretes.length > 0">
+      <tr>
+        <td><b> ID </b></td>
+        <td><b>Valor</b></td>
+        <td> <b>Desconto</b> </td>
+        <td> <b>Valor total</b> </td>
+        <td class="tdDesativar"> <b> Desativar </b></td>
+      </tr>
+      <tr *ngFor="let frete of fretes">
+        <td (click)="openModalEdit(frete.id)" >{{frete.id}}</td>
+        <td>{{frete.valor}}</td>
+        <td>{{frete.desconto}} %</td>
+        <td> {{frete.valorTotal}} </td>
+        <td class="tdDesativar">
+          <button class="buttonDelete" mat-stroked-button (click)="deleteFrete(frete.id)">X</button>
+        </td>
+      </tr>
+    </table>
+    <div class="noRegister" *ngIf="fretes.length == 0">
+      <p>Nenhum registro encontrado.</p>
+    </div>
+  
+  </div>
+  

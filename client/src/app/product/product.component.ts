@@ -31,10 +31,8 @@ export class ProductComponent implements OnInit {
   }
 
   public async deleteProduto(id : number){
-    this.question.ask(async () => {
-      await this.httpService.patch('produto', {id});
-      this.list();    
-    }) 
+    await this.httpService.patch('produto', {id});
+    this.list();    
   }  
 
   public openModal(){

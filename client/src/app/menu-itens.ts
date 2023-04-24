@@ -5,6 +5,7 @@ import { CollectionComponent } from "./collection/collection.component";
 import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
+import { ChargeCarryingComponent } from "./charge-carrying/charge-carrying.component";
 
 export const MenuItens = [
     {
@@ -46,21 +47,21 @@ export const MenuItens = [
         path: 'product',
         caption : 'Produto',
         icon : 'folder_special',
-        permissao : [1, 2, 3],
+        permissao : [4],
         component: ProductComponent,
     },
     {
         path: 'sale',
         caption : 'Pedido de venda',
         icon : 'add_shopping_cart',
-        permissao : [1, 4],
+        permissao : [4],
         component: SaleComponent,
     },
     {
         path: 'frete',
-        caption: 'Cálculo de fretes',
-        icon: 'add_shopping_cart',
+        caption: 'Cadastro de fretes',
+        icon: 'card_travel',
         permissao: [4],
-        component: SaleComponent,
+        component: ChargeCarryingComponent,
     }
 ]
