@@ -2,11 +2,11 @@ const { Sequelize } = require("sequelize");
 
 module.exports = (sequelize) => {
     sequelize.define('Frete', {
-        id: {
-            type: Sequelize.INTEGER.UNSIGNED,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
+        id : {
+            type : Sequelize.INTEGER.UNSIGNED,
+            primaryKey : true,
+            autoIncrement : true,
+            allowNull : false
         },
         valor: {
             type: Sequelize.DECIMAL(10, 2),
@@ -20,17 +20,9 @@ module.exports = (sequelize) => {
             type: Sequelize.INTEGER.UNSIGNED,
             allowNull: false,
         },
-        ativo: {
-            type: Sequelize.INTEGER.UNSIGNED,
-            allowNull: false
-        },
-        status : {
+        ativo : {
             type : Sequelize.INTEGER,
             allowNull : false
         },
-        fkProduto: {
-            type: Sequelize.INTEGER.UNSIGNED,
-            allowNull: false,
-        }
     })
 }
