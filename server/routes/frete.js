@@ -29,14 +29,17 @@ knl.post('frete', async (req, resp) => {
 });
 
 
-knl.get('frete/:id', async (resp, req) => {
-    const frete = knl.sequelize().models.frete.findAll({
-        where: {
-            id : req.params.id,
-            status : 1
-        }
-    })
+knl.get("frete", async (req, resp) => {
+    let result = await knl.sequelize().models.frete.findAll();
+    resp.json(result);
+})
 
-    resp.json(frete)
+knl.get("frete/:id", async (req, resp) => {
+    let result = await knl.sequelize().models.frete.findAll({
+        where: {
+            id: req.params.id
+        }
+    });
+    resp.json(result);
 })
 
