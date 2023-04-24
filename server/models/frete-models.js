@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
             autoIncrement : true,
             allowNull : false
         },
+        valor:{
+            type : Sequelize.DECIMAL(10, 2),
+            allowNull : false,
+        },
         ValorTotal : {
             type : Sequelize.DECIMAL(10, 2),
             allowNull : false,
@@ -21,8 +25,16 @@ module.exports = (sequelize) => {
             allowNull : false,
         },
         status : {
-            type : Sequelize.INTEGER,
+            type : Sequelize.INTEGER.UNSIGNED,
             allowNull : false
+        },
+        fkProduto:{
+            type : Sequelize.INTEGER.UNSIGNED,
+            allowNull : false,
+        },
+        fkEndereco:{
+            type : Sequelize.INTEGER.UNSIGNED,
+            allowNull : false,
         }
     })
 }
