@@ -41,18 +41,16 @@ export class ChargeCarryingComponent implements OnInit {
     })
   }
 
-  public openModalEdit(id : any){
+  public openModalEdit(frete : any){
     const dialog = this.dialog.open(ChargeModalComponent, {
       width: '450px',
-      data : id
+      data : frete
     });
 
     dialog.afterClosed().subscribe((result : any) => {
       this.list();
-      console.log('fechou modal')
     })
   }
-
 
   public async deleteFrete(id : number){
     this.question.ask(async () => {

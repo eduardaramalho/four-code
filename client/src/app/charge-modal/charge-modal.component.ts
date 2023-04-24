@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
+import { MatDialog, MAT_DIALOG_DATA  } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-charge-modal',
@@ -8,7 +8,7 @@ import { HttpService } from 'src/services/http.service';
   styleUrls: ['./charge-modal.component.scss']
 })
 export class ChargeModalComponent implements OnInit {
-  title    : string = '';
+  title    : string = 'Adicionar frete';
   valor    : number = 0;
   desconto : number = 0;
   fkProduto  : string = '';
@@ -23,11 +23,12 @@ export class ChargeModalComponent implements OnInit {
 
   async ngOnInit() {
     this.produtos = await this.httpService.get('produto'); 
-    this.title = 'Adicionar frete';
     if(this.data){
       this.title = 'Editar frete';
-      this.valor = this.data.valor;
-      this.desconto = this.data.desconto;
+      this.total = this.data.valorTotal 
+      this.valor = this.data.valor      
+      this.fkProduto = this.data.fkProduto  
+      this.desconto = this.data.desconto   
     }
     this.somarTotal();
     
@@ -39,20 +40,24 @@ export class ChargeModalComponent implements OnInit {
  }
 
   public async add(){
+    console.log({valorTotal: this.total,
+      valor: this.valor,
+      fkProduto: this.fkProduto,
+      desconto: this.desconto})
+
+
    if(this.data){
     await this.httpService.put('frete', {
       valorTotal: this.total,
       valor: this.valor,
-      fkProduto: this.fkProduto,
       desconto: this.desconto,
-      id: this.data.id
-    }); 
+      id: this.data.id}); 
    } else {
      await this.httpService.post('frete', {
       valorTotal: this.total,
       valor: this.valor,
-      fkProduto: this.fkProduto,
-      desconto: this.desconto
+      desconto: this.desconto,
+      fkProduto: this.fkProduto
     });    
    }
   }

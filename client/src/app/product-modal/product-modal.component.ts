@@ -39,7 +39,7 @@ export class ProductModalComponent implements OnInit {
   }
 
   public async add(){
-    console.log({descricao : this.descricao, precoVenda:  this.precoVenda, fkgrupo : this.grupoId, fksubGrupo : this.subgrupoId, fkColecao : this.colecaoId})
+    console.log({descricao : this.descricao, precoVenda:  this.precoVenda, fkgrupo : this.grupoId, fksubGrupo : this.subgrupoId, fkColecao : this.colecaoId, id: this.data.id})
    if(this.data){
     await this.httpService.put('produto', {descricao : this.descricao, precoVenda:  this.precoVenda, fkgrupo : this.grupoId, fksubGrupo : this.subgrupoId, fkColecao : this.colecaoId, id : this.data.id});
    } else {
