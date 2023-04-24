@@ -10,11 +10,11 @@ knl.post('colecao', async (req, resp) => {
 
     knl.validate(req.body, schema);
 
-   let TotalValor = req.body.ValorTotal*req.body.desconto/100
+    let TotalValor = req.body.ValorTotal * req.body.desconto / 100
 
     const descricao = knl.sequelize().models.frete.build({
-        ValorTotal: TotalValor,
-        ativo:req.body.ativo,
+        valorTotal: TotalValor,
+        ativo: req.body.ativo,
         desconto: req.body.desconto,
         status: 1
     });

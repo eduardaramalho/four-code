@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
             autoIncrement : true,
             allowNull : false
         },
-        ValorTotal : {
+        valorTotal : {
             type : Sequelize.DECIMAL(10, 2),
             allowNull : false,
         },
