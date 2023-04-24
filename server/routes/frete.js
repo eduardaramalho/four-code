@@ -3,29 +3,81 @@ const knl = require('../knl');
 
 knl.post('frete', async (req, resp) => {
     const schema = Joi.object({
-        valor: Joi.number().min(1).required(),
         fkProduto: Joi.number().min(1).required(),
-        fkEndereco: Joi.number().min(1).required(),
-        ValorTotal: Joi.number().min(1).required(),
-        ativo: Joi.string().required(),
+        valorTotal: Joi.number().min(1).required(),
+        valor: Joi.number().min(1).required(),
         desconto: Joi.number()
     })
 
     knl.validate(req.body, schema);
 
-    let TotalValor = req.body.ValorTotal * req.body.desconto / 100
-
-    const descricao = knl.sequelize().models.frete.build({
-        ValorTotal: TotalValor,
-        ativo:req.body.ativo,
-        valor: req.body.valor,
+    const frete = await knl.sequelize().models.Frete.build({
+        valorTotal: req.body.valorTotal,
+        valor: req.body.valorTotal,
         fkProduto: req.body.fkProduto,
-        fkEndereco: req.body.fkEndereco,
         desconto: req.body.desconto,
+        ativo: 1,
         status: 1
     });
 
-    await descricao.save();
+    frete.save();
     resp.end();
 });
 
+knl.get("frete", async (req, resp) => {
+    const fretes = await knl.sequelize().models.Frete.findAll();
+
+    if(!knl.objects.isEmptyArray(fretes)){
+        for(const frete of fretes){
+            const produto = await knl.sequelize().models.Produto.findAll({
+                where : {
+                    id : frete.fkProduto
+                }
+            })
+            if(!knl.objects.isEmptyArray(produto)){
+                frete.fkProduto_description = produto[0].descricao
+            }
+        }
+     }
+
+    resp.json(fretes);
+})
+
+knl.get("frete/:id", async (req, resp) => {
+    let result = await knl.sequelize().models.Frete.findAll({
+        where: {
+            id: req.params.id
+        }
+    });
+    resp.json(result);
+})
+
+
+knl.put("frete", async (req, resp) => {
+ await knl.sequelize().models.Frete.update({
+         valorTotal: req.body.valorTotal,
+         valor: req.body.valorTotal,
+         fkProduto: req.body.fkProduto,
+         desconto: req.body.desconto,
+    }, {
+        where: {
+            id: req.body.id
+        }
+    });
+
+    resp.json({ "Status": "ok" })
+})
+
+knl.patch('frete', async (req, resp) => {
+    await knl.sequelize().models.Frete.update({
+       status: "0",
+       ativo: "0"
+   }, {
+       where: {
+           id: req.body.id,
+       }
+   });
+   resp.end();
+}
+  
+);
