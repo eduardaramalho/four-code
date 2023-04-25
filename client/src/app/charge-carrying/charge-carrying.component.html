@@ -16,7 +16,7 @@
         <td class="tdDesativar"> <b> Desativar </b></td>
       </tr>
       <tr *ngFor="let frete of fretes">
-        <td (click)="openModalEdit(frete.id)" >{{frete.id}}</td>
+        <td (click)="openModalEdit(frete)" >{{frete.id}}</td>
         <td>{{frete.valor}}</td>
         <td>{{frete.desconto}} %</td>
         <td> {{frete.valorTotal}} </td>
