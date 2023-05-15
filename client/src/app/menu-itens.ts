@@ -6,6 +6,10 @@ import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
 import { ChargeCarryingComponent } from "./charge-carrying/charge-carrying.component";
+<<<<<<< HEAD
+=======
+import { ClientSaleComponent } from "./client-sale/client-sale.component";
+>>>>>>> 3480b4d972d4654c7aba26185808998c23cb4435
 
 export const MenuItens = [
     {
@@ -49,6 +53,13 @@ export const MenuItens = [
         icon : 'folder_special',
         permissao : [4],
         component: ProductComponent,
+    },
+    {
+        path: 'clientsale',
+        caption : 'Promoções',
+        icon : 'new_releases',
+        permissao : /*[1, 2, 3]*/[3],
+        component: ClientSaleComponent,
     },
     {
         path: 'sale',
