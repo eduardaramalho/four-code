@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username : string = '';
-  password : string = '';
+  username : string = 'testusermalwee';
+  password : string = '123123';
   hide : boolean = true;
   isLogin : boolean = false;
   
@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
       if(response.token){
         this.isLogin = true;
         window.localStorage.setItem('token', response.token);
-        
+        window.localStorage.setItem('permissao', response.user.permissao);
         this.router.navigateByUrl('');
-        console.log("Logado");
+        console.log("logado");
+        console.log(response.user.permissao);
       }
     })
   }

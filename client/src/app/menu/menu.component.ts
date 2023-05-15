@@ -12,9 +12,11 @@ export class MenuComponent implements OnInit, OnDestroy {
   opened = true;
   subscription : any = null;
   menu : Array<any> = [];
+  permissao: any;
 
   constructor(private observer : ObserverService, private router : Router) { 
     this.menu = MenuItens;
+    this.permissao = localStorage.getItem('permissao');
   }
 
   ngOnInit(): void {
