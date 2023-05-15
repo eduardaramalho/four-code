@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
       if(response.token){
         this.isLogin = true;
         window.localStorage.setItem('token', response.token);
-        
+        window.localStorage.setItem('permissao', response.user.permissao);
         this.router.navigateByUrl('');
-        console.log("Logado");
+        console.log("logado");
+        console.log(response.user.permissao);
       }
     })
   }

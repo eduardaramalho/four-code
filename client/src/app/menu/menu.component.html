@@ -1,9 +1,16 @@
 <mat-sidenav-container class="nav-container">
     <mat-sidenav mode="side" class="nav-content" [(opened)]="opened">
-          <mat-action-list>
+          <!-- <mat-action-list>
             <button mat-list-item *ngFor="let item of menu" [routerLink]="item.path">
                 <mat-icon matListIcon >{{item.icon}}</mat-icon> {{item.caption}} 
             </button>
+          </mat-action-list> -->
+          <mat-action-list >
+            <div *ngFor="let item of menu">
+            <button mat-list-item  [routerLink]="item.path" *ngIf = "item.permissao == permissao ">
+                <mat-icon matListIcon>{{item.icon}}</mat-icon> {{item.caption}} 
+            </button>
+            </div>
           </mat-action-list>
     </mat-sidenav>
     <mat-sidenav-content>

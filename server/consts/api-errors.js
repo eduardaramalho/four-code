@@ -30,6 +30,7 @@ addError('0007', 'Password are not equals');
 addError('0008', 'Request needs a token');
 addError('0009', 'Group already exists');
 addError('0010', 'Subgroup already exists');
+addError('0011', 'Sale already exists');
 
 
 exports.getApiErrorCode = getApiErrorCode;
