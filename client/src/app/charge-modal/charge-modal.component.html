@@ -1,0 +1,14 @@
+<app-basicmodal [title]="title" (save)="add()">
+    <app-dropdown [array]="produtos" [title]="'Produto'" [idField]="'id'" [textField]="'descricao'" [(ngModel)]="fkProduto"></app-dropdown> <br>
+    <mat-form-field class="example-ripple-form-field" appearance="fill">
+        <mat-label>Valor</mat-label>
+        <input matInput [(ngModel)]="valor" type="number" (blur)="somarTotal()">
+      </mat-form-field> <br>
+
+      <mat-form-field class="example-ripple-form-field" appearance="fill">
+        <mat-label>Desconto</mat-label>
+        <input matInput [(ngModel)]="desconto" type="number" (blur)="somarTotal()">
+      </mat-form-field>
+
+    <app-input [label]="'Total'" [(ngModel)]="total" class="inputTotal" [readonly]="true"></app-input>
+</app-basicmodal>

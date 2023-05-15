@@ -7,22 +7,22 @@ import { ClientComponent } from './client/client.component';
 import { GroupComponent } from './group/group.component';
 
 const routes: Routes = [
-//   {
-//     path: 'user',
-//     component: UserComponent,
-//     // canActivate: [AuthGuard],
-//     data: { roles: [Role.Admin]}
-// } ,
-// {
-//     path: 'client',
-//     component: ClientComponent,
-//     // canActivate: [AuthGuard]
-// },
-// {
-//     path: 'group',
-//     component: GroupComponent,
-//     // canActivate: [AuthGuard]
-// },
+  {
+    path: 'user',
+    component: UserComponent,
+    // canActivate: [AuthGuard],
+    data: { roles: [Role.Admin]}
+} ,
+{
+    path: 'client',
+    component: ClientComponent,
+    // canActivate: [AuthGuard]
+},
+{
+    path: 'group',
+    component: GroupComponent,
+    // canActivate: [AuthGuard]
+},
 ];
 
 @NgModule({

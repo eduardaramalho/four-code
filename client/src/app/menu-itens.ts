@@ -5,6 +5,7 @@ import { CollectionComponent } from "./collection/collection.component";
 import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
+import { ChargeCarryingComponent } from "./charge-carrying/charge-carrying.component";
 import { ClientSaleComponent } from "./client-sale/client-sale.component";
 
 export const MenuItens = [
@@ -12,42 +13,42 @@ export const MenuItens = [
         path: 'user',
         caption : 'Usuário',
         icon : 'person',
-        permissao : [1],
+        permissao : [4],
         component: UserComponent,
     } ,
     {
         path: 'client',
         caption : 'Cliente',
         icon : 'supervisor_account',
-        permissao : [1, 2],
+        permissao : [4],
         component: ClientComponent,
     },
     {
         path: 'group',
         caption : 'Grupo',
         icon : 'assessment',
-        permissao : [1, 2],
+        permissao : [4],
         component: GroupComponent,
     },
     {
         path: 'subgroup',
         caption : 'Subgrupo',
         icon : 'assignment',
-        permissao : [1, 2],
+        permissao : [4],
         component: SubgroupComponent,
     },
     {
         path: 'collection',
         caption : 'Coleção',
         icon : 'next_week',
-        permissao : [1, 2],
+        permissao : [4],
         component: CollectionComponent,
     },
     {
         path: 'product',
         caption : 'Produto',
         icon : 'folder_special',
-        permissao : /*[1, 2, 3]*/[3],
+        permissao : [4],
         component: ProductComponent,
     },
     {
@@ -61,7 +62,14 @@ export const MenuItens = [
         path: 'sale',
         caption : 'Pedido de venda',
         icon : 'add_shopping_cart',
-        permissao : [1, 4],
+        permissao : [4],
         component: SaleComponent,
+    },
+    {
+        path: 'frete',
+        caption: 'Cadastro de fretes',
+        icon: 'card_travel',
+        permissao: [4],
+        component: ChargeCarryingComponent,
     }
 ]
