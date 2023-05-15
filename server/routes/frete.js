@@ -34,7 +34,7 @@ knl.post('frete', async (req, resp) => {
     resp.json({ "status": "ok" })
 
 
-})const Joi = require('joi');
+})
 const knl = require('../knl');
 
 knl.post('frete', async (req, resp) => {
