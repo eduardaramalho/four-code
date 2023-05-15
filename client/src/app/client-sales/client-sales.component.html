@@ -1,0 +1,30 @@
+<div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Insira a Promoção</mat-label>
+      <input matInput (input)="filterInput()" [(ngModel)]="filterTerm">
+    </mat-form-field>
+    <button class="buttonSearch" mat-stroked-button (click)="openModal()">+</button>
+</div>
+
+<div class="table">
+    <table *ngIf="sales.length > 0">
+      <tr class="title">
+        <td><b>ID</b></td>
+        <td><b>Meses</b></td>
+        <td><b>Porcentagem</b></td>
+        <td class="tdDesativar"><b>Desativar</b></td>
+      </tr>
+        <tr *ngFor="let sale of sales">
+          <td>{{sale.id}} </td>
+          <td (click)="openModalEdit(sale)" class="tdDescricao"> {{sale.meses}} </td>
+          <td (click)="openModalEdit(sale)" class="tdDescricao"> {{sale.porcentagem}} </td>
+          <td class="tdDesativar">
+            <button class="buttonDelete" mat-stroked-button (click)="delete(sale.id)">X</button>
+          </td>
+        </tr>
+    </table>
+
+    <div *ngIf="sales.length == 0" class="noRegister">
+        <p>Nenhum registro encontrado.</p>
+      </div>
+    </div>

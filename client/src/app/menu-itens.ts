@@ -6,7 +6,7 @@ import { ProductComponent } from "./product/product.component";
 import { ClientComponent } from "./client/client.component";
 import { SaleComponent } from "./sale/sale.component";
 import { ChargeCarryingComponent } from "./charge-carrying/charge-carrying.component";
-import { ClientSaleComponent } from "./client-sale/client-sale.component";
+import { ClientSalesComponent } from "./client-sales/client-sales.component";
 
 export const MenuItens = [
     {
@@ -55,8 +55,8 @@ export const MenuItens = [
         path: 'clientsale',
         caption : 'Promoções',
         icon : 'new_releases',
-        permissao : /*[1, 2, 3]*/[3],
-        component: ClientSaleComponent,
+        permissao : /*[1, 2, 3]*/[4],
+        component: ClientSalesComponent,
     },
     {
         path: 'sale',

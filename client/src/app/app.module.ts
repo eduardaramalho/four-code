@@ -45,6 +45,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ChargeCarryingComponent } from './charge-carrying/charge-carrying.component';
 import { ChargeModalComponent } from './charge-modal/charge-modal.component';
+import { ClientSalesComponent } from './client-sales/client-sales.component';
+import { ClientSalesModalComponent } from './client-sales-modal/client-sales-modal.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { ChargeModalComponent } from './charge-modal/charge-modal.component';
     ProductSaleModalComponent,
     SignUpComponent,
     ChargeCarryingComponent,
-    ChargeModalComponent
+    ChargeModalComponent,
+    ClientSalesComponent,
+    ClientSalesModalComponent
     ],
   imports: [
     RoutesModule,

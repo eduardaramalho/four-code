@@ -1,16 +1,16 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
 
 @Component({
-  selector: 'app-client-sale-modal',
-  templateUrl: './client-sale-modal.component.html',
-  styleUrls: ['./client-sale-modal.component.scss']
+  selector: 'app-client-sales-modal',
+  templateUrl: './client-sales-modal.component.html',
+  styleUrls: ['./client-sales-modal.component.scss']
 })
-export class ClientSaleModalComponent implements OnInit {
-  title : string = 'Adicionar Promoção';
-  meses : string = '';
+export class ClientSalesModalComponent implements OnInit {
   porcentagem : string = '';
+  meses : string = ''; 
+  title : string = '';
 
   constructor(private httpService : HttpService, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -28,6 +28,7 @@ export class ClientSaleModalComponent implements OnInit {
     } else {
       await this.httpService.post('sale', {meses : this.meses, porcentagem : this.porcentagem});
     }
+
   }
 
 }

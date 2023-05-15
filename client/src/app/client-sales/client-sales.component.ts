@@ -3,19 +3,20 @@ import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from 'src/services/http.service';
 import { QuestionService } from 'src/services/question.service';
 import { ObjectUtils } from 'src/utils/ObjectUtils';
-import { ClientSaleModalComponent } from '../client-sale-modal/client-sale-modal.component';
+import { ChargeModalComponent } from '../charge-modal/charge-modal.component';
+import { ClientSalesModalComponent } from '../client-sales-modal/client-sales-modal.component';
 
 @Component({
-  selector: 'app-client-sale',
-  templateUrl: './client-sale.component.html',
-  styleUrls: ['./client-sale.component.scss']
+  selector: 'app-client-sales',
+  templateUrl: './client-sales.component.html',
+  styleUrls: ['./client-sales.component.scss']
 })
-export class ClientSaleComponent implements OnInit {
+export class ClientSalesComponent implements OnInit {
   sales : Array<any> =[]; 
   originalList : Array<any> =[]; 
   filterTerm : string = '';
 
-  constructor(private httpService : HttpService, public dialog: MatDialog, private question: QuestionService) { }
+   constructor(private httpService : HttpService, public dialog: MatDialog, private question: QuestionService) { }
 
   ngOnInit(): void {
     this.list()
@@ -24,14 +25,14 @@ export class ClientSaleComponent implements OnInit {
   public async list(){    
     this.sales = await this.httpService.get('sale');
     ObjectUtils.copyArray(this.sales, this.originalList);
-}
+  }
 
   public filterInput(){
     ObjectUtils.filterArray(this.sales, this.originalList, this.filterTerm, 'meses');
   }
 
   public openModal(){
-    const dialog = this.dialog.open(ClientSaleModalComponent, {
+    const dialog = this.dialog.open(ClientSalesModalComponent, {
       width: '450px'
     });
 
@@ -41,7 +42,7 @@ export class ClientSaleComponent implements OnInit {
   }
 
   public openModalEdit(sale : any){
-    const dialog = this.dialog.open(ClientSaleModalComponent, {
+    const dialog = this.dialog.open(ClientSalesModalComponent, {
       width: '450px',
       data : sale
     });
@@ -51,11 +52,12 @@ export class ClientSaleComponent implements OnInit {
     })
   }
 
-   public async delete(id : number){
+  public delete(id: number){
     this.question.ask(async () => {
       await this.httpService.patch('sale', {id});
       this.list();    
     }) 
-  }   
+  }
+
 
 }
