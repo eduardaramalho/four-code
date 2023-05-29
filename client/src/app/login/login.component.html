@@ -18,6 +18,12 @@
                 </button>
             </mat-form-field>
     </mat-card-content>
+    <div *ngIf="noToken == true">
+        <mat-card-content>
+            <mat-label>Usuário não existe ou está incorreto</mat-label>
+            <br>
+        </mat-card-content>
+    </div>
     <mat-card-actions>
         <button mat-raised-button (click)="login()" class="botaoEntrar">Entrar</button> <br>
         <a routerLink="/signup" class="novoUsuario">Ainda não possui conta? Cadastre-se aqui!</a>
