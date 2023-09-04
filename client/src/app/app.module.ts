@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BlockUIModule } from 'ng-block-ui';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,8 +16,8 @@ import { RoutesModule } from './routes.module';
 import { GroupComponent } from './group/group.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { BasicmodalComponent } from './basicmodal/basicmodal.component';
 import { InputComponent } from './input/input.component';
@@ -41,7 +41,7 @@ import { AddressEditComponent } from './address-edit/address-edit.component';
 import { SaleComponent } from './sale/sale.component';
 import { SaleModalComponent } from './sale-modal/sale-modal.component';
 import { ProductSaleModalComponent } from './product-sale-modal/product-sale-modal.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ChargeCarryingComponent } from './charge-carrying/charge-carrying.component';
 import { ChargeModalComponent } from './charge-modal/charge-modal.component';
@@ -84,8 +84,8 @@ import { ClientSalesModalComponent } from './client-sales-modal/client-sales-mod
     ChargeCarryingComponent,
     ChargeModalComponent,
     ClientSalesComponent,
-    ClientSalesModalComponent
-    ],
+    ClientSalesModalComponent,
+  ],
   imports: [
     RoutesModule,
     BrowserModule,
@@ -97,14 +97,12 @@ import { ClientSalesModalComponent } from './client-sales-modal/client-sales-mod
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    MatAutocompleteModule
-    ],
-  exports : [
-    RouterModule
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
-  providers: [
-    QuestionService
-  ],
-  bootstrap: [AppComponent]
+  exports: [RouterModule],
+  providers: [QuestionService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
